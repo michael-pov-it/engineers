@@ -1,4 +1,4 @@
-FROM rust:slim AS builder
+FROM rust:1-alpine3.22 AS builder
 
 RUN apk add --no-cache musl-dev build-base
 
