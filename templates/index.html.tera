@@ -16,6 +16,34 @@
     <p class="tagline">{{ hero_tagline }}</p>
     <a href="#offer" class="btn primary">{{ see_offer }}</a>
   </header>
-  <!-- …rest of markup… -->
+
+  <!-- CALL-TO-ACTION SECTION -->
+  <section class="cta">
+    <div class="container">
+      <h2>{{ cta_h2 }}</h2>
+      <a href="#kontakt" class="btn secondary">{{ contact_us }}</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="kontakt">
+    <div class="container">
+      <p>
+        © <span id="year"></span> {{ copyright_text }}
+      </p>
+      <p>
+        E-mail:
+        <a href="mailto:hello@engineers-incubator.com">
+          {{ hello_email }}
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Keeps copyright year up to date -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
