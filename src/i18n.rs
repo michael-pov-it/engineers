@@ -1,5 +1,5 @@
 //! Fluent-based i18n helper (stateless version)
-use fluent_bundle::{FluentArgs, FluentBundle, FluentResource};
+use fluent_bundle::{FluentBundle, FluentResource};
 use rust_embed::RustEmbed;
 use unic_langid::LanguageIdentifier;
 

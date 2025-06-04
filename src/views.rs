@@ -28,10 +28,31 @@ pub async fn index(lang: web::Path<String>) -> impl Responder {
 
     // keys we inject into the template (snake_case)
     let keys = [
-        "page_title",
-        "hero_h1",
-        "hero_tagline",
-        "see_offer",
+      "page_title",
+      "hero_h1",
+      "hero_tagline",
+      "see_offer",
+      "cta_h2",
+      "contact_us",
+      "copyright_text",
+      "hello_email",
+      "punuka_card1_h2",
+      "punuka_card1_p",
+      "punuka_card2_h2",
+      "punuka_card2_p",
+      "punuka_card3_h2",
+      "punuka_card3_p",
+      "key_aspects_h2",
+      "key_aspects_ol_li1_strong",
+      "key_aspects_ol_li1",
+      "key_aspects_ol_li2_strong",
+      "key_aspects_ol_li2",
+      "key_aspects_ol_li3_strong",
+      "key_aspects_ol_li3",
+      "key_aspects_ol_li4_strong",
+      "key_aspects_ol_li4",
+      "key_aspects_ol_li5_strong",
+      "key_aspects_ol_li5",
     ];
 
     let mut ctx = Context::new();
@@ -49,6 +70,14 @@ pub async fn index(lang: web::Path<String>) -> impl Responder {
 
 /// Mount dynamic + static routes
 pub fn services(cfg: &mut web::ServiceConfig) {
-    cfg.service(web::resource("/{lang}").route(web::get().to(index)))
-        .service(Files::new("/", "./static").prefer_utf8(true));
+    cfg
+      .service(Files::new("/assets", "./static").prefer_utf8(true))  // /assets/…
+      .service(web::resource("/{lang}").route(web::get().to(index))) // /en, /sk …
+      .route("/", web::get().to(redirect_root));                     // optional /
+}
+
+async fn redirect_root() -> impl actix_web::Responder {
+  actix_web::HttpResponse::Found()
+      .append_header(("Location", "/sk"))   // default language
+      .finish()
 }

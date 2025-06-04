@@ -2,13 +2,17 @@
 <html lang="{{ lang }}">
 <head>
   <meta charset="utf-8" />
+  <meta name="robots" content="noindex,nofollow">
+
   <title>{{ page_title }}</title>
-  <link rel="stylesheet" href="/styles.css" />
+
+  <link rel="stylesheet" href="/assets/styles.css" />
 </head>
 <body>
-  <div class="language">
-    <a href="/en" class="btn secondary">EN</a>
-    <a href="/sk" class="btn secondary">SK</a>
+
+  <div class="language-switch">
+    <a href="/en" class="lang-btn {% if lang == 'en' %}active{% endif %}">EN</a>
+    <a href="/sk" class="lang-btn {% if lang == 'sk' %}active{% endif %}">SK</a>
   </div>
 
   <header class="hero">
@@ -16,6 +20,58 @@
     <p class="tagline">{{ hero_tagline }}</p>
     <a href="#offer" class="btn primary">{{ see_offer }}</a>
   </header>
+
+  <!-- OFFER SECTION -->
+  <section id="ponuka" class="section">
+    <div class="container grid-3">
+      <!-- Card 1 -->
+      <article class="card">
+        <h2>{{ punuka_card1_h2 }}</h2>
+        <p>{{ punuka_card1_p }}</p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <h2>{{ punuka_card2_h2 }}</h2>
+        <p>{{ punuka_card2_p }}</p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <h2>{{ punuka_card3_h2 }}</h2>
+        <p>{{ punuka_card3_p }}</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- KEY ASPECTS SECTION -->
+  <section class="section alt">
+    <div class="container">
+      <h2>{{ key_aspects_h2 }}</h2>
+      <ol class="aspects">
+        <li>
+          <strong>{{ key_aspects_ol_li1_strong }}</strong>
+          {{ key_aspects_ol_li1 }}
+        </li>
+        <li>
+          <strong>{{ key_aspects_ol_li2_strong }}</strong>
+          {{ key_aspects_ol_li2 }}
+        </li>
+        <li>
+          <strong>{{ key_aspects_ol_li3_strong }}</strong>
+          {{ key_aspects_ol_li3 }}
+        </li>
+        <li>
+          <strong>{{ key_aspects_ol_li4_strong }}</strong>
+          {{ key_aspects_ol_li4 }}
+        </li>
+        <li>
+          <strong>{{ key_aspects_ol_li5_strong }}</strong>
+          {{ key_aspects_ol_li5 }}
+        </li>
+      </ol>
+    </div>
+  </section>
 
   <!-- CALL-TO-ACTION SECTION -->
   <section class="cta">
@@ -29,7 +85,7 @@
   <footer class="footer" id="kontakt">
     <div class="container">
       <p>
-        © <span id="year"></span> {{ copyright_text }}
+        &copy; <span id="year"></span> {{ copyright_text }}
       </p>
       <p>
         E-mail:

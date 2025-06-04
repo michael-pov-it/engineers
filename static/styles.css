@@ -116,17 +116,36 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-/* ---------- LANGUAGES SECTION ---------- */
-.language {
+/* ---------- LANGUAGE SWITCH (utility widget) ---------- */
+.language-switch {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
   display: flex;
-  gap: 0.5rem;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
+  gap: 0.25rem;
+  z-index: 999;
 }
 
-.language .btn {
-  padding: 0.4rem 0.8rem;
+.lang-btn {
   font-size: 0.8rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+  background: #ffffff90;      /* translucent white */
+  color: #2d6cdf;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(4px); /* glassy look */
+  transition: background 0.25s, box-shadow 0.25s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
+}
+
+.lang-btn:hover {
+  background: #ffffff;
+}
+
+.lang-btn.active {
+  background: #2d6cdf;
+  color: #fff;
 }
 
 /* ---------- FOOTER ---------- */
