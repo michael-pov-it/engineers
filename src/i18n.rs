@@ -7,7 +7,6 @@ use unic_langid::LanguageIdentifier;
 #[folder = "locales"]
 struct Locales;
 
-/// Build a Fluent bundle for the requested language (falls back to “sk”)
 pub fn get_bundle(lang: &str) -> FluentBundle<FluentResource> {
     let lang_id: LanguageIdentifier = lang
         .parse()
@@ -23,11 +22,9 @@ pub fn get_bundle(lang: &str) -> FluentBundle<FluentResource> {
     bundle
 }
 
-/// Translate a single key with no arguments
 pub fn tr(bundle: &FluentBundle<FluentResource>, key: &str) -> String {
-    let msg = bundle.get_message(key).expect("missing key");
-    let pattern = msg.value().expect("no value");
-    bundle
-        .format_pattern(pattern, Some(&FluentArgs::new()), &mut vec![])
-        .to_string()
+  match bundle.get_message(key).and_then(|m| m.value()) {
+      Some(pattern) => bundle.format_pattern(pattern, None, &mut vec![]).to_string(),
+      None => format!("⟪{}⟫", key),   // fallback placeholder
+  }
 }
