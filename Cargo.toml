@@ -1,10 +1,15 @@
 [package]
-name 	= "engineers_incubator_site"
-version = "0.1.1"
+name 	  = "engineers_incubator_site"
 edition = "2021"
+version = "1.0.2"
 
 [dependencies]
-actix-files = "0.6"
-actix-web 	= { version = "4.11", features = ["rustls"] }
-tokio       = {	version = "1", features = ["full"] }
-openssl		= { version = "0.10", features = ["vendored"] }
+actix-files   = "0.6"
+actix-web 	  = "4.11"
+tera          = "1.19"
+fluent-bundle = "0.15"
+fluent        = "0.16"
+unic-langid   = "0.9"
+rust-embed    = "8"
+once_cell     = "1"
+tokio         = {	version = "1", features = ["full"] }

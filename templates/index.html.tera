@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="language">
+    <a href="/en" class="btn secondary">EN</a>
+    <a href="/sk" class="btn secondary">SK</a>
+  </div>
+
+  <header class="hero">
+    <h1>{{ hero_h1 }}</h1>
+    <p class="tagline">{{ hero_tagline }}</p>
+    <a href="#offer" class="btn primary">{{ see_offer }}</a>
+  </header>
+  <!-- …rest of markup… -->
+</body>
+</html>
